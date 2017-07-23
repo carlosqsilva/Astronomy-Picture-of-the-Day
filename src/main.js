@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 
-import './assets/css/purified.css'
+import './assets/css/bulma.css'
 
 Vue.config.productionTip = false
 
