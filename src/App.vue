@@ -1,31 +1,55 @@
 <template>
-  <div id="app">
-    <section class="hero is-dark" id="hero">
-      <div class="hero-body">
-        <div class="container">
+<div id="app">
 
-          <h1 class="title is-1">
-          Nasa Astronomy Pictures of the Day
-          </h1>
+  <div class="bg-custom">
+    <nav class="navbar">
+      <div class="container">
+        <!-- <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="./assets/img/telescope.svg" alt="Bulma: a modern CSS framework based on Flexbox">
+          </a>
+        </div> -->
 
-          <!-- <h2 class="subtitle">
-            Hero subtitle
-          </h2>     --> 
+        <div class="navbar-end">
+          <div class="navbar-item">
+              <p class="control">
+                <a class="button is-black" @click="onSearch">
+                  <span class="icon">
+                    <i class="fa fa-search"></i>
+                  </span>
+                  <span> Search</span>
+                </a>
+              </p>
+          </div>
+        </div>
+        </div>
+    </nav>
 
+    <section class="hero is-dark">
+      <div class="container">
+        <div class="hero-body">
+          <p class="title is-2">
+            Nasa Astronomy Pictures of the Day
+          </p>
         </div>
       </div>
     </section>
 
+  </div>
+
     <section class="section">
-      <div class="columns is-multiline">
-        <div class="column is-one-quarter" v-for="(date, index) in dates">
-            <card :date="date" :key="index"></card>
-        </div>        
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-one-quarter" v-for="date in dates">
+            <card :date="date" :key="date"></card>
+          </div>        
+        </div>
       </div>
 
       <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading"></infinite-loading>
     </section>
 
+    <search></search>
     <modal></modal>
 
   </div>
@@ -34,8 +58,9 @@
 <script>
 import Card from './components/Card'
 import Modal from './components/Modal'
+import Search from './Components/Search'
 import InfiniteLoading from 'vue-infinite-loading'
-import helper from './helper'
+import Helper from './helper'
 
 export default {
   name: 'app',
@@ -50,13 +75,22 @@ export default {
   created(){
     let d = new Date()
     let date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
-    this.dates = helper.lastNDays(this.number, date)
+    this.dates = Helper.lastNDays(this.number, date)
+
+    Helper.bus.$on('input', (input) => {
+      console.log("oi")
+      this.dates = Helper.lastNDays(input.number, input.startDate)
+    })
   },
 
   methods: {
+    onSearch() {
+      Helper.bus.$emit('search', true)
+    },
+
     onInfinite() {
       const lastDate = this.dates[this.dates.length - 1]
-      let newDates = helper.lastNDays(this.number, lastDate)
+      let newDates = Helper.lastNDays(this.number, lastDate)
       this.dates = this.dates.concat(newDates.slice(1))
       this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded')
     },
@@ -65,13 +99,17 @@ export default {
   components: {
     Card,
     Modal,
+    Search,
     InfiniteLoading,
   }
 }
 </script>
 
 <style scoped>
-#hero{
+.navbar, .hero, .button{
+  background-color: rgba(0, 0, 0, 0);
+}
+.bg-custom{
   background-image: url('https://apod.nasa.gov/apod/image/1512/EnceladusRingsPIA18343.jpg');
   background-repeat: no-repeat;
   background-size: cover;

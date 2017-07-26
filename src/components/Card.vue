@@ -58,7 +58,13 @@ export default {
 </script>
 
 <style scoped>
-.hide-media{
-  display: none;
+.image.is-4by3 iframe{
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
 }
 </style>
