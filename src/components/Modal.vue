@@ -1,7 +1,7 @@
 <template>
-
-  <div class="modal" :class="{'is-active' : activeModal}">
-    <div class="modal-background" @click="toggleModal"></div>
+<transition name="fadeInDown">
+  <div class="modal is-active" v-if="activeModal">
+    <!-- <div class="modal-background" @click="toggleModal"></div> -->
     <div class="modal-card">
       <header class="modal-card-head">
         <p class="modal-card-title">{{info.title}}</p>
@@ -20,7 +20,7 @@
       </footer>
     </div>
   </div>
-
+</transition>
 </template>
 
 <script>
@@ -58,5 +58,22 @@ export default {
 </script>
 
 <style scoped>
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
 
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInDown-enter-active {
+  animation: fadeInDown .5s;
+}
+.fadeInDown-leave-active {
+  animation: fadeInDown .5s reverse;
+}
 </style>

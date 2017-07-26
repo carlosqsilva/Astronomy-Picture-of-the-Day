@@ -4,12 +4,6 @@
   <div class="bg-custom">
     <nav class="navbar">
       <div class="container">
-        <!-- <div class="navbar-brand">
-          <a class="navbar-item">
-            <img src="./assets/img/telescope.svg" alt="Bulma: a modern CSS framework based on Flexbox">
-          </a>
-        </div> -->
-
         <div class="navbar-end">
           <div class="navbar-item">
               <p class="control">
@@ -106,6 +100,9 @@ export default {
 </script>
 
 <style scoped>
+.section{
+  background-color: rgba(0, 0, 0, 0.15);
+}
 .navbar, .hero, .button{
   background-color: rgba(0, 0, 0, 0);
 }

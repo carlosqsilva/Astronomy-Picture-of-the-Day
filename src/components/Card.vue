@@ -31,6 +31,7 @@ export default {
   data () {
     return {
       api: "https://api.nasa.gov/planetary/apod?api_key=ah6ryJzZ2uRaCXQcxpk5wzMyDKpxfJ6hltz4DbdY&hd=true&date=",
+      isLoading: true,
       isVideo: false,
       info: {},
     }
