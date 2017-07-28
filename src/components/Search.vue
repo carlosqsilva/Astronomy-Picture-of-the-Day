@@ -65,7 +65,7 @@
       </div>
 
     </div>
-    <button class="modal-close is-large"></button>
+    <!-- <button class="modal-close is-large"></button> -->
   </div>
 </transition>
 </template>
