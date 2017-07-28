@@ -116,7 +116,7 @@ export default {
   }
 }
 .bg-custom{
-  background-image: url('/../static/img/planets.jpg');
+  background-image: url('./assets/img/planets.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   filter: contrast(1.3);
