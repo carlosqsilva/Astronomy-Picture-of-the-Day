@@ -99,15 +99,15 @@ var webpackConfig = merge(baseWebpackConfig, {
       minify: true,
       stripPrefix: 'docs/',
       runtimeCaching: [{
-        urlPattern: '/https:\/\/cdnjs.cloudflare.com/',
+        urlPattern: '/https:\/\/cdnjs\.cloudflare\.com\//',
         handler: 'cacheFirst'
       },
       {
-      	urlPattern: '/^https:\/\/api.nasa.gov\/planetary\//',
+      	urlPattern: '/^https:\/\/api\.nasa\.gov\//',
       	handler: 'cacheFirst'
       },
       {
-      	urlPattern: '/^https:\/\/apod.nasa.gov\//',
+      	urlPattern: '/^https:\/\/apod\.nasa\.gov\//',
       	handler: 'cacheFirst'
       }]
     })
