@@ -98,16 +98,17 @@ var webpackConfig = merge(baseWebpackConfig, {
       staticFileGlobs: ['docs/**/*.{js,html,css,jpg}'],
       minify: true,
       stripPrefix: 'docs/',
-      runtimeCaching: [{
-        urlPattern: '/https:\/\/cdnjs\.cloudflare\.com\//',
+      runtimeCaching: [
+      {
+        urlPattern: /^https:\/\/cdnjs\.cloudflare\.com\//,
         handler: 'cacheFirst'
       },
       {
-      	urlPattern: '/^https:\/\/api\.nasa\.gov\//',
+      	urlPattern: /^https:\/\/api\.nasa\.gov\//,
       	handler: 'cacheFirst'
       },
       {
-      	urlPattern: '/^https:\/\/apod\.nasa\.gov\//',
+      	urlPattern: /^https:\/\/apod\.nasa\.gov\//,
       	handler: 'cacheFirst'
       }]
     })
