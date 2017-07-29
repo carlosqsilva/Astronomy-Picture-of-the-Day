@@ -96,18 +96,18 @@ var webpackConfig = merge(baseWebpackConfig, {
       cacheId: 'my-vue-app',
       filename: 'service-worker.js',
       staticFileGlobs: ['docs/**/*.{js,html,css,jpg}'],
-      minify: false,
+      minify: true,
       stripPrefix: 'docs/',
       runtimeCaching: [{
-        urlPattern: '/https\:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bulma\/\d\.\d\.\d\/css\/bulma\.min\.css/g',
+        urlPattern: '/https\:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bulma\/\d\.\d\.\d\/css\/bulma\.min\.css/',
         handler: 'cacheFirst'
       },
       {
-      	urlPattern: '/^https:\/\/api.nasa.gov\/planetary\/apod\?api_key\=.*/g',
+      	urlPattern: '/^https:\/\/api.nasa.gov\/planetary\/apod\?api_key\=.*/',
       	handler: 'cacheFirst'
       },
       {
-      	urlPattern: '/^https:\/\/apod\.nasa\.gov\/apod\/image\/(\d+)\/*.+\.jpg/g',
+      	urlPattern: '/^https:\/\/apod\.nasa\.gov\/apod\/image\/(\d+)\/*.+\.jpg/',
       	handler: 'cacheFirst'
       }]
     })
