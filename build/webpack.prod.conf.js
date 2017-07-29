@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 var env = config.build.env
 
@@ -90,7 +91,26 @@ var webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'my-vue-app',
+      filename: 'service-worker.js',
+      staticFileGlobs: ['docs/**/*.{js,html,css,jpg}'],
+      minify: false,
+      stripPrefix: 'docs/',
+      runtimeCaching: [{
+        urlPattern: '/https\:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bulma\/\d\.\d\.\d\/css\/bulma\.min\.css/g',
+        handler: 'cacheFirst'
+      },
+      {
+      	urlPattern: '/^https:\/\/api.nasa.gov\/planetary\/apod\?api_key\=.*/g',
+      	handler: 'cacheFirst'
+      },
+      {
+      	urlPattern: '/^https:\/\/apod\.nasa\.gov\/apod\/image\/(\d+)\/*.+\.jpg/g',
+      	handler: 'cacheFirst'
+      }]
+    })
   ]
 })
 

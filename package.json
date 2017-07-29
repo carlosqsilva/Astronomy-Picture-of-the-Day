@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "sw-precache-webpack-plugin": "^0.11.4",
     "vue": "^2.3.3",
     "vue-infinite-loading": "^2.1.3"
   },
