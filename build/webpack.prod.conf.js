@@ -99,15 +99,15 @@ var webpackConfig = merge(baseWebpackConfig, {
       minify: true,
       stripPrefix: 'docs/',
       runtimeCaching: [{
-        urlPattern: '/https\:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bulma\/\d\.\d\.\d\/css\/bulma\.min\.css/',
+        urlPattern: '/https\:\/\/cdnjs\.cloudflare\.com/',
         handler: 'cacheFirst'
       },
       {
-      	urlPattern: '/^https:\/\/api.nasa.gov\/planetary\/apod\?api_key\=.*/',
+      	urlPattern: '/^https:\/\/api.nasa.gov\/planetary\//',
       	handler: 'cacheFirst'
       },
       {
-      	urlPattern: '/^https:\/\/apod\.nasa\.gov\/apod\/image\/(\d+)\/*.+\.jpg/',
+      	urlPattern: '/^https:\/\/apod\.nasa\.gov\//',
       	handler: 'cacheFirst'
       }]
     })
