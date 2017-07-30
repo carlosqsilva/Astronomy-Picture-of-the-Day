@@ -1,0 +1,21 @@
+{
+  "name": "Astronomy Picture of the Day",
+  "short_name": "Nasa APOD",
+  "icons": [{
+      "src": "/assets/icons/logo128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "/assets/icons/logo256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }, {
+    "src": "/assets/icons/logo512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+    }],
+  "start_url": "/",
+  "background_color": "#6D808C",
+  "display": "standalone",
+  "theme_color": "#6D808C"
+}
