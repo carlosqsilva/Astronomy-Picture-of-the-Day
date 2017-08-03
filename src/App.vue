@@ -8,7 +8,7 @@
         <div class="container">
           <div class="nav-left">
             <a class="nav-item">
-              <img src="./assets/img/logo256.png" alt="Nasa APOD">
+              <img src="./assets/img/logo512.png" alt="Nasa APOD">
             </a>
             <a class="nav-item" href="https://github.com/carlosqsilva/Astronomy-Picture-of-the-Day">
                by Carlos Silva
