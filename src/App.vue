@@ -93,6 +93,7 @@ export default {
   methods: {
     onSearch() {
       Helper.bus.$emit('search', true)
+      this.navMenu = false
     },
 
     onInfinite() {
