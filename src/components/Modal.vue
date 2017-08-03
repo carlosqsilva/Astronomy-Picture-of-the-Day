@@ -1,11 +1,10 @@
 <template>
 <transition name="fadeInDown">
   <div class="modal is-active" v-if="activeModal">
-    <!-- <div class="modal-background" @click="toggleModal"></div> -->
+    <div class="modal-background" @click="toggleModal"></div>
     <div class="modal-card">
       <header class="modal-card-head">
         <p class="modal-card-title">{{info.title}}</p>
-        <button class="delete is-large" @click="toggleModal"></button>
       </header>
       <section class="modal-card-body">
         <p class="image is-4by3">
@@ -16,7 +15,7 @@
         <br>
       </section>
       <footer class="modal-card-foot">
-        <a class="button is-light" @click="toggleModal">Close</a>
+        <a class="button" @click="toggleModal">Close</a>
       </footer>
     </div>
   </div>
@@ -69,7 +68,6 @@ export default {
     transform: none;
   }
 }
-
 .fadeInDown-enter-active {
   animation: fadeInDown .5s;
 }

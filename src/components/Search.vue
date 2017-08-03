@@ -2,72 +2,37 @@
   <transition name="fadeInDown">
 
     <div class="modal is-active" v-if="activeModal">
-      <!-- <div class="modal-background" @click="toggleModal"></div> -->
-      <div class="modal-content">
-
-        <div class="card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Search by Date</p>
-            <button class="delete is-large" @click="toggleModal"></button>
-          </header>
-
-          <div class="card-content">
-
-            <div class="field is-horizontal">
-              <div class="field-label is-normal">
-                <label class="label">From</label>
-              </div>
-              <div class="field-body">
-                <div class="field">
-                  <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="text" placeholder="Start Date YYYY-MM-DD" v-model:value="info.startDate">
-                    <span class="icon is-small is-left">
-                      <i class="fa fa-calendar"></i>
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="field is-horizontal">
-             <div class="field-label is-normal">
-              <label class="label">To</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control has-icons-left">
-                  <input class="input" type="number" placeholder="How many days" v-model:value="info.number">
-                  <span class="icon is-small is-left">
-                    <i class="fa fa-calendar"></i>
-                  </span>
-                </p>
-              </div>
+      <div class="modal-background" @click="toggleModal"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Search By Date</p>
+        </header>
+        <section class="modal-card-body">
+          <!-- Content ... -->
+          
+          <div class="field">
+            <label class="label">From</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="ex: 2016-06-20" v-model="info.startDate">
             </div>
           </div>
 
-          <div class="field is-horizontal">
-            <div class="field-label">
-              <!-- Left empty for spacing -->
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <button class="button is-primary" @click="search">
-                    Search
-                  </button>
-                </div>
-              </div>
+          <div class="field">
+            <label class="label">How many days</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="ex: 20" v-model="info.number">
             </div>
           </div>
 
-        </div>
-
+        </section>
+        <footer class="modal-card-foot">
+          <a class="button is-success" @click="search">Search</a>
+          <a class="button" @click="toggleModal">Close</a>
+        </footer>
       </div>
-
     </div>
-    <!-- <button class="modal-close is-large"></button> -->
-  </div>
-</transition>
+
+  </transition>
 </template>
 
 <script>

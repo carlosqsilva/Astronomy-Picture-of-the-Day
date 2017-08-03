@@ -9,12 +9,9 @@
       </div>
       <div class="card-content">
         <div class="media">
-          <!-- <div class="media-left">
-            <a href="">Learn More...</a>
-          </div> -->
           <div class="media-content">
-            <p class="title is-5">{{ info.title }}</p>
-            <p class="subtitle is-6">Copyright: {{ info.copyright || "Public Domain"}}</p>
+            <p class="title is-size-6">{{ info.title }}</p>
+            <p class="subtitle is-size-6">Copyright: {{ info.copyright || "Public Domain"}}</p>
           </div>
         </div>
       </div>
@@ -31,7 +28,6 @@ export default {
   data () {
     return {
       api: "https://api.nasa.gov/planetary/apod?api_key=ah6ryJzZ2uRaCXQcxpk5wzMyDKpxfJ6hltz4DbdY&hd=true&date=",
-      isLoading: true,
       isVideo: false,
       info: {},
     }
