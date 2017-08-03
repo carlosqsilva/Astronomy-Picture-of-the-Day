@@ -10,7 +10,7 @@
             <a class="nav-item">
               <img src="/static/img/icons/logo256.png" alt="Nasa APOD">
             </a>
-            <a class="nav-item">
+            <a class="nav-item" href="https://github.com/carlosqsilva/Astronomy-Picture-of-the-Day">
                by Carlos Silva
             </a>
           </div>
@@ -129,10 +129,14 @@ export default {
 .hero .nav-toggle span{
   background-color: #fff;
 }
+.hero .nav-toggle:hover span{
+  background-color: black;
+}
 .hero .nav-toggle.is-active{
   background-color: #fff;
 }
 .hero .nav-toggle.is-active span{
   background-color: black;
 }
+
 </style>
