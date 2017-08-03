@@ -43,7 +43,7 @@ module.exports = {
         options: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]'),
-          publicPath: process.env === 'production' ? './' : '../../'
+          publicPath: process.env === 'production' ? './' : '../'
         }
       },
       {
