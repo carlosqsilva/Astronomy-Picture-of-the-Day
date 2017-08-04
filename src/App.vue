@@ -1,7 +1,7 @@
 <template>
 <div id="app">
   
-  <section class="hero">
+  <section class="hero is-info is-inverted">
   <!-- Hero header: will stick at the top -->
     <div class="hero-head">
       <header class="nav">
@@ -10,9 +10,9 @@
             <a class="nav-item">
               <img src="https://carlosqsilva.github.io/Astronomy-Picture-of-the-Day/static/img/icons/logo256.png" alt="Nasa APOD">
             </a>
-            <a class="nav-item" href="https://github.com/carlosqsilva/Astronomy-Picture-of-the-Day">
+            <!-- <a class="nav-item" >
                by Carlos Silva
-            </a>
+            </a> -->
           </div>
 
           <span class="nav-toggle" :class="{'is-active': navMenu}" @click="navMenu = !navMenu">
@@ -22,8 +22,11 @@
           </span>
 
           <div class="nav-right nav-menu" :class="{'is-active': navMenu}">
+             <a class="nav-item has-text-white" href="https://github.com/carlosqsilva/Astronomy-Picture-of-the-Day">
+              Github
+            </a>
             <span class="nav-item">
-              <a class="button" @click="onSearch">
+              <a class="button is-info is-inverted" @click="onSearch">
                 Search
               </a>
             </span>
@@ -39,6 +42,10 @@
         <h1 class="title has-text-white">
           Astronomy Picture of the Day
         </h1>
+        <h2 class="subtitle has-text-white">
+          <span id="typed" style="white-space:pre"></span>
+          <span class="typed-cursor">|</span>
+        </h2>
       </div>
     </div>
 
@@ -68,6 +75,8 @@ import Modal from './components/Modal'
 import Search from './Components/Search'
 import InfiniteLoading from 'vue-infinite-loading'
 import Helper from './helper'
+import Typed from 'typed.js'
+
 
 export default {
   name: 'app',
@@ -104,6 +113,19 @@ export default {
     },
   },
 
+  mounted(){
+    let options ={
+      strings: ['by Carlos Silva', 'Images from NASA Apod api'],
+      typeSpeed: 120,
+      startDealay: 0,
+      backSpeed: 80,
+      backDelay: 5000,
+      showCursor: false,
+      loop: true
+    }
+    let typed = new Typed("#typed", options)
+  },
+
   components: {
     Card,
     Modal,
@@ -119,14 +141,13 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   filter: contrast(1.3);
-  color: #fff;
 }
-.hero .nav-item{
+/* .hero .nav-item{
   color: #fff;
 }
 .hero .nav-item:hover{
   color: #fff;
-}
+} */ 
 .hero .nav-toggle span{
   background-color: #fff;
 }
@@ -140,4 +161,19 @@ export default {
   background-color: black;
 }
 
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.typed-cursor {
+  opacity: 1;
+  animation: blink 0.7s infinite;
+}
 </style>
