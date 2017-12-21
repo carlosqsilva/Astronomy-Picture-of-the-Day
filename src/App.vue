@@ -72,7 +72,7 @@
 <script>
 import Card from './components/Card'
 import Modal from './components/Modal'
-import Search from './Components/Search'
+import Search from './components/Search'
 import InfiniteLoading from 'vue-infinite-loading'
 import Helper from './helper'
 import Typed from 'typed.js'
